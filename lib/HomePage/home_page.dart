@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'food_items.dart';
 import 'navbar.dart';
+import 'Restaurants/restaurants.dart';
 import 'search&filter.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -11,8 +13,21 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  void snackBar(){
+    const snackBar = SnackBar(
+        content: Text('Your order is successful!'));
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
   @override
   Widget build(BuildContext context) {
+    Box box = Hive.box('snackBar');
+
+    box.get('isVisible') ?? false ? WidgetsBinding.instance.addPostFrameCallback((_) {
+      snackBar();
+      box.put('isVisible',false);
+      setState(() {});
+    }): null;
+
     return Scaffold(
         drawer: const NavBar(),
         appBar: AppBar(
@@ -65,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
               )
               ),
             ),
-            FoodItemsScreen()
+            RestaurantsList()
           ],
         ));
   }

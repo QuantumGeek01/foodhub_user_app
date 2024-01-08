@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../HomePage/home_page.dart';
+import 'authentication.dart';
 
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({Key? key}) : super(key: key);
@@ -134,12 +134,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   child: ElevatedButton(
                       onPressed: () {
                         if(formState.currentState!.validate()){
-                          print("validate");
                           _nameTextEditingController.clear();
                           _emailTextEditingController.clear();
                           _passwordTextEditingController.clear();
                           _confirmPasswordTextEditingController.clear();
-                          Navigator.push(context,MaterialPageRoute(builder: (C)=>const HomeScreen()));
+                          Navigator.push(context,MaterialPageRoute(builder: (C)=>const AuthenticationScreen()));
 
                         }
                       },

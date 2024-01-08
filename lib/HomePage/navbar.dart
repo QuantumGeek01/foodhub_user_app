@@ -10,12 +10,12 @@ class NavBar extends StatelessWidget {
        padding: EdgeInsets.zero,
         children: [
           UserAccountsDrawerHeader(
-            accountName: const Text("American Burger"),
-            accountEmail: const Text("americanBurger@gamil.com"),
+            accountName: const Text("Faysal Ahmed"),
+            accountEmail: const Text("faysalahmedr@gamil.com"),
             currentAccountPicture: CircleAvatar(
                 child: ClipOval(
               child: Image.network(
-                'https://thumbs.dreamstime.com/b/burger-icon-cheese-logo-isolated-vector-white-background-trendy-icons-modern-symbols-flat-illustration-graphic-web-190660929.jpg',
+                'https://i.pinimg.com/originals/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg',
                 height: 90,
                 width: 90,
                 fit: BoxFit.cover,
@@ -46,16 +46,16 @@ class NavBar extends StatelessWidget {
           const Padding(
             padding:EdgeInsets.only(left:5),
             child: ListTile(
-              leading:Icon(Icons.attach_money),
-              title:Text('My Earnings'),
+              leading:Icon(Icons.food_bank),
+              title:Text('My order'),
               contentPadding:EdgeInsets.all(5),
             ),
           ),
           const Padding(
             padding:EdgeInsets.only(left:5),
             child: ListTile(
-              leading:Icon(Icons.list),
-              title:Text('New orders'),
+              leading:Icon(Icons.person),
+              title:Text('View profile'),
               contentPadding:EdgeInsets.all(5),
             ),
           ),
